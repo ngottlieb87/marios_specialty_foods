@@ -1,0 +1,15 @@
+
+<%= render "layouts/errors", :object => @product %>
+
+<%= form_for @product do |f| %>
+  <div class="col-4">
+    <div class="form-group">
+      <%= f.text_field :name, :placeholder => "Food Name", :class => "form-control" %>
+      <%= f.text_field :cost, :placeholder => "Cost", :class => "form-control" %>
+      <%= f.text_field :country_origin, :placeholder => "Country of Origin", :class => "form-control" %>
+    <span class="input-group-btn">
+      <%= f.submit :class => "btn btn-danger"%>
+    </span>
+  </div>
+  </div>
+<% end %>
