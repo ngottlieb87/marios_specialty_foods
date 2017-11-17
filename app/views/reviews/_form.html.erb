@@ -1,0 +1,17 @@
+<%= render "layouts/errors", :object => @review %>
+
+<%= form_for [@product, @review]  do |f| %>
+  <div class="col-4">
+    <div class="form-group">
+      <%= f.label :author %>
+      <%= f.text_field :author, :class => "form-control" %>
+      <%= f.label :rating %> <p><em>On a scale of 1-5, how did you like it?</em></p>
+      <%= f.text_field :rating, :class => "form-control" %>
+      <%= f.label :content %> <p><em>min char. 50, max. 250</em></p>
+      <%= f.text_field :content, :class => "form-control" %>
+      <span class="input-group-btn">
+      <%= f.submit :class => "btn btn-primary"%>
+    </span>
+    </div>
+  </div>
+<% end %>

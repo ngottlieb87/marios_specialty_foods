@@ -27,12 +27,14 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    flash[:notice] = "Product Edited!"
     render :edit
   end
 
   def update
     @product= Product.find(params[:id])
     if @product.update(product_params)
+      flash[:notice] = "Product Updated!"
       redirect_to product_path
     else
       render :edit
@@ -42,6 +44,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
+    flash[:alert] = "Artist Deleted"
     redirect_to products_path
   end
 

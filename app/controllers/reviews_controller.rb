@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def new
     @product = Product.find(params[:product_id])
-    @review = Review.new
+    @review = @product.reviews.new
   end
 
   def create
@@ -9,14 +9,14 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.new(review_params)
     if @review.save
       flash[:notice] = "review successfully added!"
-      redirect_to review_path(@product)
+      redirect_to product_path(@product.id)
     else
       render :new
     end
   end
 
   def show
-    @product = product.find(params[:id])
+    @product = Product.find(params[:id])
     @reviews = @product.reviews
   end
 

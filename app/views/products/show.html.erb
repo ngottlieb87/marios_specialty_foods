@@ -8,4 +8,5 @@
     <li> Currently costs: $<%= @product.cost %>.00
     <li> This wonderful product came to us from <em><%= @product.country_origin %></em>
   </ul>
+  <p><%= link_to "Have You Eaten this food? Tell us about it!", new_product_review_path(@product)%></p>
 </div>
