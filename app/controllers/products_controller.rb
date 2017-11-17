@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
     @products = Product.all
     if params[:sort] == "most_recent"
       @products = @products.order(:created_at => :desc).limit(3)
+    elsif params[:sort] == "made_in_usa"
+      @products = @products.where(:country_origin => "USA")
     end
   end
 
