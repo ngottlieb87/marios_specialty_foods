@@ -1,12 +1,20 @@
 <div class ="card">
   <h3>Details for <h1><%= @product.name %></h1></h3>
+  <% if @product.reviews.any? %>
+     <% @product.reviews.each do |review| %>
+    <ul>
+       <li><%= review.author %></li>
+       <li><%= review.rating %></li>
+       <li><%= review.content %></li>
+    </ul>
+  <% end %>
+  <% else %>
+    <p>There are no reviews yet for this product. <%= link_to "Add One!", new_product_review_path(@product)%><p>
+  <% end %>
   <p><%= link_to "Admin Edit", edit_product_path(@product) %>
     <%= link_to "Admin Delete", product_path(@product),
                            :data => {:confirm => "You sure?",
                                      :method => "delete"} %></p>
-  <ul>
-    <li> Currently costs: $<%= @product.cost %>.00
-    <li> This wonderful product came to us from <em><%= @product.country_origin %></em>
-  </ul>
-  <p><%= link_to "Have You Eaten this food? Tell us about it!", new_product_review_path(@product)%></p>
+
+  <p><%= link_to "Write A Review", new_product_review_path(@product)%></p>
 </div>
