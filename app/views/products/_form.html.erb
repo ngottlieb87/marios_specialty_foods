@@ -4,11 +4,14 @@
 <%= form_for @product do |f| %>
   <div class="col-4">
     <div class="form-group">
-      <%= f.text_field :name, :placeholder => "Food Name", :class => "form-control" %>
-      <%= f.text_field :cost, :placeholder => "Cost", :class => "form-control" %>
-      <%= f.text_field :country_origin, :placeholder => "Country of Origin", :class => "form-control" %>
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => "form-control" %>
+      <%= f.label :cost %>
+      <%= f.text_field :cost, :class => "form-control" %>
+      <%= f.label :country_origin %>
+      <%= f.text_field :country_origin, :class => "form-control" %>
     <span class="input-group-btn">
-      <%= f.submit :class => "btn btn-danger"%>
+      <%= f.submit :class => "btn btn-primary"%>
     </span>
   </div>
   </div>
