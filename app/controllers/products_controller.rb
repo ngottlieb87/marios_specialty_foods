@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+    if params[:sort] == "most_recent"
+      @products = @products.order(:created_at => :desc)
+    end
   end
 
   def new
