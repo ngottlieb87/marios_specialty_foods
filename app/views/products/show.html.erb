@@ -18,6 +18,7 @@
   <% else %>
     <p>There are no reviews yet for this product. <%= link_to "Add One!", new_product_review_path(@product)%><p>
   <% end %>
+  <p><%= link_to "Return to Products", products_path %></p>
   <p><%= link_to "Admin Product Edit", edit_product_path(@product) %>
     <%= link_to "Admin Product Delete", product_path(@product),
                            :data => {:confirm => "You sure?",
