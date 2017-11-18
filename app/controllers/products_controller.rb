@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
       @products = @products.order(:created_at => :desc).limit(3)
     elsif params[:sort] == "made_in_usa"
       @products = @products.where(:country_origin => "USA")
+    elsif params[:sort] == "most_reviews"
+      @products.most_reviews
     end
   end
 
@@ -29,7 +31,6 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    flash[:notice] = "Product Edited!"
     render :edit
   end
 

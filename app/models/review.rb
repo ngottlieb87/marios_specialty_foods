@@ -7,11 +7,5 @@ class Review < ApplicationRecord
   validates :rating, inclusion: { in: 1..5 }
   validates :product_id, :presence => true
 
-  scope :most_reviews, -> {(
-    select("reviews.name, reviews.author, count(products.id) as products_count")
-    .joins(:products)
-    .group("reviews.id")
-    .order("reviews_count DESC")
-    .limit(10)
-    )}
+
 end
