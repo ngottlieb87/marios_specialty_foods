@@ -10,7 +10,9 @@
       <div class = "card">
       <h5>Here is a list of our current products</h5>
         <% @products.each do |product| %>
-          <li><%= link_to product.name, product_path(product) %></li>
+          <ul>
+            <li><%= link_to product.name, product_path(product) %></li>
+          </ul>
         <% end %>
       </div>
     </div>
