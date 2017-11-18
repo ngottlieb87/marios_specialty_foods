@@ -6,7 +6,11 @@ class ProductsController < ApplicationController
     elsif params[:sort] == "made_in_usa"
       @products = @products.where(:country_origin => "USA")
     elsif params[:sort] == "most_reviews"
-      @products.most_reviews
+      @products = Product.select("products.name, products.id, products.cost, count(reviews.id) as reviews_count")
+    .joins(:reviews)
+    .group("products.id")
+    .order("reviews_count DESC")
+    .limit(1)
     end
   end
 
