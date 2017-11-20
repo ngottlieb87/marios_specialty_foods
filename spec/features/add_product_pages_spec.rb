@@ -8,7 +8,7 @@ describe "will add a new product and display it " do
     fill_in 'Cost', :with => "5"
     fill_in 'Country origin', :with => "China"
     click_on 'Create Product'
-    expect(page).to have_content 'product successfully added'
+    expect(page).to have_content 'Product successfully added'
   end
 
   it "displays errors when no name is entered" do
