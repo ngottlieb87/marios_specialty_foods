@@ -1,28 +1,28 @@
-<div class ="card">
-  <h3>Details for <h1><%= @product.name %></h1></h3>
+<div class ="card reviewBody">
+  <h1 class="productName"><%= @product.name %></h1>
   <div class="card">
     <h4> This Product Costs: $<%= @product.cost %>.00 </h4>
     <h4> From the distant land of: <em><%= @product.country_origin %></em> </h4>
-    <p><%= link_to "Write A Review", new_product_review_path(@product)%></p>
+    <p class= "writeReview"><%= link_to "Write A Review", new_product_review_path(@product)%></p>
   </div>
-
-  <% if @product.reviews.any? %>
-     <% @product.reviews.each do |review| %>
-     Review by: <%= review.author %>
-    <ul>
-       Rating: <%= review.rating %>
-              <li><%= review.content %></li>
-    </ul>
-    <hr>
-  <% end %>
-  <% else %>
-    <p>There are no reviews yet for this product. <%= link_to "Add One!", new_product_review_path(@product)%><p>
-  <% end %>
-  <p><%= link_to "Return to Products", products_path %></p>
-  <p><%= link_to "Admin Product Edit", edit_product_path(@product) %>
-    <%= link_to "Admin Product Delete", product_path(@product),
+  <div class="displayReview">
+    <% if @product.reviews.any? %>
+       <% @product.reviews.each do |review| %>
+       Review by: <%= review.author %>
+      <ul>
+         Rating: <%= review.rating %>
+                <li><%= review.content %></li>
+      </ul>
+      <hr>
+    <% end %>
+    <% else %>
+      <p>There are no reviews yet for this product. <%= link_to "Add One!", new_product_review_path(@product)%><p>
+    <% end %>
+  </div>
+  <p id= "returnProd"><%= link_to "Return to Products", products_path %></p>
+  <hr>
+  <p class="admin"><%= link_to "Admin Product Edit", edit_product_path(@product)%></p>
+  <p class= "admin"><%= link_to "Admin Product Delete", product_path(@product),
                            :data => {:confirm => "You sure?",
                                      :method => "delete"} %></p>
-
-
 </div>
