@@ -12,7 +12,7 @@
       <h5 class ="headListProd">Here is a list of our current products:</h5>
         <% @products.each do |product| %>
           <ul>
-            <li><%= link_to product.name, product_path(product) %></li>
+            <li class="listProducts"><%= link_to product.name, product_path(product) %></li>
           </ul>
         <% end %>
       </div>
