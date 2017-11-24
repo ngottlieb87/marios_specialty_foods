@@ -1,14 +1,15 @@
 <span> <h1>Welcome to Mario's Specialty Foods</h1><p>Admin: <%= link_to "Add Product", new_product_path%></p></span>
 
-<div class = "card">
-  <h4>What We're all about</h4>
-    <p>
+<div class = "card" id="bodyCard">
+  <h4 class="description">What We're All About</h4>
+  <hr>
+    <p class="description">
       Mario's Specialty Foods is all about providing unique foods to our customers. We pride ourselves on providing the best quality foods from around the world. We also value our customers feed back! We want to know what foods you like and most importantly which ones you don't. Feel free to add a review and rating for our products so we can continue to provide the best foods from our hands to your table.
     </p>
   <div class = "row">
     <div class = "col-sm-4">
-      <div class = "card">
-      <h5>Here is a list of our current products</h5>
+      <div class = "card" id= "products">
+      <h5 class ="headListProd">Here is a list of our current products:</h5>
         <% @products.each do |product| %>
           <ul>
             <li><%= link_to product.name, product_path(product) %></li>
@@ -18,7 +19,7 @@
     </div>
     <div class="dropdown">
       <button class="btn btn-dark dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filter By:
+        Filter Products By:
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="/">All</a>
