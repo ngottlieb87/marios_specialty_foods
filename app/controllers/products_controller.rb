@@ -2,15 +2,11 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     if params[:sort] == "most_recent"
-      @products = @products.order(:created_at => :desc).limit(3)
+      @products = @products.most_recent
     elsif params[:sort] == "made_in_usa"
-      @products = @products.where(:country_origin => "USA")
+      @products = @products.made_in_usa
     elsif params[:sort] == "most_reviews"
-      @products = Product.select("products.name, products.id, products.cost, count(reviews.id) as reviews_count")
-    .joins(:reviews)
-    .group("products.id")
-    .order("reviews_count DESC")
-    .limit(1)
+      @products = @products.most_reviewed
     end
   end
 
