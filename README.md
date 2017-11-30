@@ -11,6 +11,7 @@ Be able to see all of the foods that Mario's Specialty Foods Currently has. Clic
 1. open terminal navigate to desired download location (ex. `cd desktop`) and enter: </br>`git clone https://github.com/ngottlieb87/marios_specialty_foods`
 
 2. Navigate to the root of the project directory and enter the following commands in the terminal:
+  * `bundle install`
   * `rake db:create`
   * `rake db:migrate`
   * `rake db:test:prepare`
